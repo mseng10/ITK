@@ -218,12 +218,12 @@ function(itk_fetch_module _name _description)
 
     set(REMOTE_GIT_TAG "${_fetch_options_GIT_TAG}")
 
-    if( DEFINED Module_${_name}_GIT_TAG AND NOT "${Module_${_name}_GIT_TAG}" STREQUAL "${_fetch_options_GIT_TAG}")
-      set(REMOTE_GIT_TAG "${Module_${_name}_GIT_TAG}")
-      message(STATUS "NOTE: Using override 'Module_${_name}_GIT_TAG=${REMOTE_GIT_TAG}'\n"
-                     "      instead of value 'GIT_TAG=${_fetch_options_GIT_TAG}'\n"
-                     "      specified in file ${ITK_SOURCE_DIR}/Modules/Remote/${_name}.remote.cmake'")
-    endif()
+#    if( DEFINED Module_${_name}_GIT_TAG AND NOT "${Module_${_name}_GIT_TAG}" STREQUAL "${_fetch_options_GIT_TAG}")
+#      set(REMOTE_GIT_TAG "${Module_${_name}_GIT_TAG}")
+#      message(STATUS "NOTE: Using override 'Module_${_name}_GIT_TAG=${REMOTE_GIT_TAG}'\n"
+#                     "      instead of value 'GIT_TAG=${_fetch_options_GIT_TAG}'\n"
+#                     "      specified in file ${ITK_SOURCE_DIR}/Modules/Remote/${_name}.remote.cmake'")
+#    endif()
     set(Module_${_name}_GIT_TAG "${REMOTE_GIT_TAG}" CACHE STRING "Override default GIT_TAG value for remote module ${_name}")
     mark_as_advanced(Module_${_name}_GIT_TAG)
     # Show remote module options if building.
